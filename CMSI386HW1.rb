@@ -8,6 +8,7 @@ require 'generator'
 #2
     def scramble(str)
         return st. split(//).shuffle.join
+        #turns into an array. shuffles the array, then turns it back into a string
     end
     
 #3
@@ -24,7 +25,7 @@ require 'generator'
         end
     end
     
-#4 commit
+#4
     def powers(base, limit)
         g = Generator.new do |x|
             count = 0
@@ -39,11 +40,11 @@ require 'generator'
         end
     end
 
-#5
+#5, worked with terran moore
     def interleave(a,b)
         longer = smaller = []
         a.size > b.size ? longer = a : longer = b
-        a.size > b.size ? smaller = b : smaller = a #can't figure how to shorten this
+        a.size > b.size ? smaller = b : smaller = a #can't figure how to shorten this/ make less redundant
         return a.zip(b).flatten.concat(longer[smaller.size..longer.size])
 
     end
@@ -104,11 +105,11 @@ class TestUtil < Test::Unit::TestCase
   end
 
   def test_powers_of_two()
-    # TODO
+    # TODO, not sure how to unit test this
   end
 
   def test_powers()
-    # TODO
+    # TODO, not sure how to unit test this
   end
 
   def test_interleave()
@@ -124,6 +125,7 @@ class TestUtil < Test::Unit::TestCase
     assert_equal([[1],1].stutter, [[1],[1],1,1])
     assert_equal(["ray","toal"].stutter, ["ray", "ray", "toal", "toal"])
     assert_equal(["",""].stutter, ["","","",""])
+    assert_equal([].stutter, [])
   end
 
 end
