@@ -1,79 +1,79 @@
 require 'generator'
 
 #1.
-	def strip_vowells(str)
-		return str.delete'aeiouAEIOU'
-	end
+    def strip_vowells(str)
+        return str.delete'aeiouAEIOU'
+    end
 
 #2
-	def scramble(str)
-		return st. split(//).shuffle.join
-	end
-	
+    def scramble(str)
+        return st. split(//).shuffle.join
+    end
+    
 #3
-	def powers_of_two(limit)
-		g = Generator.new do |x|
-			base = 0;
-			while 2 ** base < limit
-				x.yield 2 ** base
-				base += 1;
-			end
-		end
-		while !g.end?
-			yield g.next
-		end
-	end
-	
+    def powers_of_two(limit)
+        g = Generator.new do |x|
+            base = 0;
+            while 2 ** base < limit
+                x.yield 2 ** base
+                base += 1;
+            end
+        end
+        while !g.end?
+            yield g.next
+        end
+    end
+    
 #4 commit
-	def powers(base, limit)
-		g = Generator.new do |x|
-			count = 0
-			while base ** count < limit
-				x.yield base ** count
-				count += 1;
-			end
-		end
-	
-		while !g.end?
-			yield g.next
-		end
-	end
+    def powers(base, limit)
+        g = Generator.new do |x|
+            count = 0
+            while base ** count < limit
+                x.yield base ** count
+                count += 1;
+            end
+        end
+    
+        while !g.end?
+            yield g.next
+        end
+    end
 
 #5
-	def interleave(a,b)
-		longer = smaller = []
-		a.size > b.size ? longer = a : longer = b
-		a.size > b.size ? smaller = b : smaller = a #can't figure how to shorten this
-		return a.zip(b).flatten.concat(longer[smaller.size..longer.size])
+    def interleave(a,b)
+        longer = smaller = []
+        a.size > b.size ? longer = a : longer = b
+        a.size > b.size ? smaller = b : smaller = a #can't figure how to shorten this
+        return a.zip(b).flatten.concat(longer[smaller.size..longer.size])
 
-	end
-	
+    end
+    
 #6
-	class Array
-		def stutter
-			result = []
-   		 	for n in self
-   		 		result.push n
-    			result.push n
-    		end
-    		return result
-		end
-	end
+    class Array
+        def stutter
+            result = []
+            for n in self
+                result.push n
+                result.push n
+            end
+            return result
+        end
+    end
 
 #7
-	for i in 0..ARGV[0].size
-		puts ARGV[0][0,i]
-	end
+    for i in 0..ARGV[0].size
+        puts ARGV[0][0,i]
+    end
 
 #8
-	count = 0
-	file= File.new(ARGV[0])
-	while  line = file.gets
-		if line[0] != "" || line[0] != "#"
-			count+= 1
-		end
-	end
-	puts count
+    count = 0
+    file= File.new(ARGV[0])
+    while  line = file.gets
+        if line[0] != "" || line[0] != "#"
+            count+= 1
+        end
+    end
+    puts count
 #9
 
 
@@ -113,10 +113,10 @@ class TestUtil < Test::Unit::TestCase
 
   def test_interleave()
     assert_equal(interleave([1, 2], [nil, 5, 7, 10]), [1, nil, 2, 5, 7, 10])
-   	assert_equal(interleave([1,2,3], [1,2,3]), [1,1,2,2,3,3])
-   	assert_equal(interleave([1,3,5,7,9], [2,4,6]), [1,2,3,4,5,6,7,9])
-   	assert_equal(interleave(["ray"], ["toal"]), ["ray", "toal"])
-   	assert_equal(interleave(["r","a","y"], ["t","o","a","l"]), ["r", "t", "a","o","y","a", "l"])
+    assert_equal(interleave([1,2,3], [1,2,3]), [1,1,2,2,3,3])
+    assert_equal(interleave([1,3,5,7,9], [2,4,6]), [1,2,3,4,5,6,7,9])
+    assert_equal(interleave(["ray"], ["toal"]), ["ray", "toal"])
+    assert_equal(interleave(["r","a","y"], ["t","o","a","l"]), ["r", "t", "a","o","y","a", "l"])
   end
 
   def test_stutter()
