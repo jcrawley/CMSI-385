@@ -1,3 +1,4 @@
+
 require 'generator'
 
 #1.
