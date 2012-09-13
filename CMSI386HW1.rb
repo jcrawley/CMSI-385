@@ -24,7 +24,7 @@ require 'generator'
 		end
 	end
 	
-#4
+#4 commit
 	def powers(base, limit)
 		g = Generator.new do |x|
 			count = 0
