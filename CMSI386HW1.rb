@@ -1,4 +1,3 @@
-
 require 'generator'
 
 #1.
@@ -95,7 +94,7 @@ class TestUtil < Test::Unit::TestCase
     assert_equal(strip_vowels("ouT"), "T");
     assert_equal(strip_vowels("aeT"), strip_vowels("ioT"))
     assert_equal(strip_vowels("AEHIAEIOU"), strip_vowels("aeHIaeiou"))
-    assert_equal(strip_vowles("why"), strip_vowels("why"))
+    assert_equal(strip_vowels("why"), strip_vowels("why"))
   end
 
   def test_scramble()
